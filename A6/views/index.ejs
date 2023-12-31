@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Documentation</title>
+</head>
+
+<body>
+    <h1>API Documentation</h1>
+    <p>This api returns information about products</p>
+
+    <table>
+        <tr>
+            <th><strong>Method</strong></th>
+            <th><strong>Endpoint</strong></th>
+            <th><strong>Description</strong></th>
+        </tr>
+        <tr>
+            <td>GET</th>
+            <td><a href="/api/product/min/0">/api/product/<strong>:min</strong></a></td>
+            <td>Returns all the products that meet the specified minimum price.</th>
+        </tr>
+    </table>
+
+
+    <h1>Testing the API Endpoint</h1>
+    <label>Enter the minimum product price:</label>
+    <input type="text" placeholder=">=price" name="price" autocomplete="off"/>
+    <button>Get Products</button>
+   
+
+    <section></section>
+
+    <!-- NOTE: This file is located in public/app.js -->
+    <script type="text/javascript" src="app.js"></script>
+</body>
+</html>
