@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Form</title>
+    <style>
+        body {
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            margin-left: 20px;
+        }
+        input, button {
+            display:block;
+            margin:8px 0px;            
+            font-size:16px;
+            padding:4px 6px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Booking Form</h1>
+    <form action="/booked/<%= roomIdx %>/<%= timeIdx %>" method="POST">
+        <label>UserId</label>
+        <input type="text" name="userId" autocomplete="off">
+        <label>Room Number:</label>
+        <input type="text" name="room" value="<%= roomList[roomIdx].name %>">
+        <label>Timeslot:</label>
+        <input type="text" name="time" value="<%= timeSlots[timeIdx] %>">
+        <button>BOOK</button>
+    </form>
+</body>
+</html>

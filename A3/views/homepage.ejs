@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Home Page</title>
+</head>
+<body>
+    <h1>List of Study Rooms</h1>
+    <table>
+        <tr>
+            <th>Room</th>
+            <th>Morning</th>
+            <th>Afternoon</th>
+            <th>Evening</th>
+        </tr>
+        <% for(let i=0; i < roomList.length; ++i) {%>
+            <tr>
+                <td>
+                    <%= roomList[i].name %>
+                </td>
+                <% for(let j=0; j < roomList[i].bookings.length; ++j) {%>
+                    <% if (roomList[i].bookings[j] == "") {%>
+                        <td><a href="/book/<%= i %>/<%= j %>">Book</a></td>
+                    <% } else { %>
+                        <td>Unavailable<span id="lighted">(<%= roomList[i].bookings[j] %>)</span></td>
+                    <% } %>
+                <% } %>
+            </tr>
+        <% } %>
+    </table>
+    <h2>Cancel All Bookings</h2>
+    <form action="cancel" method="POST">
+        <button>Cancel Bookings</button>
+    </form>
+</body>
+</html>
