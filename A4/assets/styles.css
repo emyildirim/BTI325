@@ -1,0 +1,30 @@
+body{
+        font-family: 'Gill Sans', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: rgb(211, 211, 211);
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+input,
+ select {
+    display: block;
+    margin: 8px 0px;
+    font-size: 16px;
+    padding: 4px 6px;
+}
+
+.error{
+    color: red;
+    text-decoration: underline;
+}
+
+div{
+    border: 2px solid black;
+    padding: 15px;
+    margin: 5px;
+    width: 500px;
+}
+
+button{
+    padding: 3px 4px;
+}

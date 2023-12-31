@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Admin Panel</title>
+</head>
+<body>
+    <%- include("navigation") %>
+    
+    <h2>PARKING FEES COLLECTED:</h2>
+    <!-- display error if no parking lot found -->
+    <% if (results.length == 0) {%>
+        <p class="error">ERROR: No parking lot exist!</p>
+    <% } else { %>
+        <% for(const result of results) {%>
+            <p>Fees collected at Parking Lot<strong> <%= result.parkingLot.name %></strong> : $<%= result.totalFee %></p>
+        <% } %>
+        <p>TOTAL: $<%= allFees %></p>
+    <% } %>
+    <br>
+
+    <h2>CAR SUMMARY</h2>
+     <% if (results.length == 0) {%>
+        <p class="error">ERROR: There are no cars parked!</p>
+    <% } else { %>
+        <!-- parking lots and num of cars -->
+        <% for(const result of results) {%>
+            <p>Cars in Parking Lot<strong> <%= result.parkingLot.name %></strong> : <%= result.cars.length %></p>
+        <% } %>
+        <br>
+        <!-- all the parked cars -->
+        <% for(const result of results) { %>
+            <% for(const car of result.cars) {%>
+                <p><%= car.model %>,  <%= car.licensePlate %>, <%= car.parkingLot %>, $<%= car.paid %></p>
+            <% } %>
+        <% } %>
+    <% } %>
+
+
+</body>
+</html>

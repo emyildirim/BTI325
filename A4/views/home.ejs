@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles.css">
+    <title>Home Page</title>
+</head>
+<body>
+    <%- include("navigation") %>
+
+    <h1>Parking Form</h1>
+    <form action="/purchase" method="POST">
+        <!-- display error if no parking lot found -->
+        <% if (results.length===0) {%>
+            <p class="error">ERROR: No parking lot exist!</p>
+        <% } else { %>
+            <label>Select a parking lot:</label>
+            <select name="parkingLot">
+                <% for(const park of results) {%>
+                    <option value="<%= park.name %>"><%= park.name %> - $<%= park.hourlyRate %> per hour - Max $<%= park.maxRate %></option>
+                <% } %>
+            </select>
+            <label>Car Model:</label>
+            <input type="text"name="model" autocomplete="off" autofocus>
+            <label>License Plate:</label>
+            <input type="text" name="license" autocomplete="off" autofocus>
+            <label>Hours:</label>
+            <input type="number"name="hours" min="1">
+            <button>PURCHASE</button>
+        <% } %>
+    </form>
+
+    <br>
+    <h2>Search Your Car:</h2>
+    <form action="/search" method="POST">
+        <input type="text" name="searched" autocomplete="off" placeholder="license plate">
+        <button>Search</button>
+    </form>
+</body>
+</html>
